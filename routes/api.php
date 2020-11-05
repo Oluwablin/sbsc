@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+//NON-AUTHETICATED USERS
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+//AUTHETICATED USERS
+Route::middleware('jwt.auth')->group(function () {
+    
 });
