@@ -31,4 +31,18 @@ Route::middleware('jwt.auth')->group(function () {
     Route::get('get/authenticated/user', 							    'AuthenticationController@userCurrentlyLoggedIn');
     Route::post('user/logout', 										    'AuthenticationController@logoutUser');
 
+    //PRODUCTS
+    Route::get('fetch/all/products', 								    'ProductController@listAllProducts');
+    Route::get('fetch/a/particular/product/{id}', 						'ProductController@listAProduct');
+    Route::post('create/new/product', 								    'ProductController@storeProduct');
+    Route::post('update/a/particular/product/{id}', 					'ProductController@updateProduct');
+    Route::delete('delete/a/particular/product/{id}', 					'ProductController@deleteProduct');
+
+    //PRODUCT CATEGORIES
+    Route::get('fetch/all/product/categories', 							'ProductCategoryController@listAllProductCategories');
+    Route::get('fetch/a/particular/product/category/{id}', 				'ProductCategoryController@listAProductCategory');
+    Route::post('create/new/product/category', 							'ProductCategoryController@storeProductCategory');
+    Route::put('update/a/particular/product/category/{id}', 			'ProductCategoryController@updateProductCategory');
+    Route::delete('delete/a/particular/product/category/{id}', 			'ProductCategoryController@deleteProductCategory');
+
 });

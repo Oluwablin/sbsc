@@ -50,7 +50,7 @@ class RegistrationController extends Controller
             return response()->json($data, 201);
         } catch (Exception $e) {
             DB::rollback();
-            return response()->json(['status'=> 'error' , 'message' => $e->getMessage(). ',' . 'Sorry, could not create account'], 400);
+            return response()->json(['status'=> 'error' , 'message' => $e->getMessage(). ',' . ' Sorry, could not create account'], 400);
         }
     }
 }
