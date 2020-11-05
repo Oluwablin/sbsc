@@ -15,7 +15,18 @@ use Illuminate\Support\Facades\Route;
 */
 //NON-AUTHETICATED USERS
 
+//REGISTER
+Route::post('user/register', 									        'RegistrationController@registerUser');
+
+//LOGIN
+Route::post('user/login', 										        'AuthenticationController@loginUser');
+
+//RESET
+Route::post('send/password/email',                                      'AuthenticationController@forgotPassword');
+Route::post('send/password/reset',                                      'AuthenticationController@resetPassword');
+
+
 //AUTHETICATED USERS
 Route::middleware('jwt.auth')->group(function () {
-    
+
 });
