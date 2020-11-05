@@ -28,5 +28,7 @@ Route::post('send/password/reset',                                      'Authent
 
 //AUTHETICATED USERS
 Route::middleware('jwt.auth')->group(function () {
+    Route::get('get/authenticated/user', 							    'AuthenticationController@userCurrentlyLoggedIn');
+    Route::post('user/logout', 										    'AuthenticationController@logoutUser');
 
 });
