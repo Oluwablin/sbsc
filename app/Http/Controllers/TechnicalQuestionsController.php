@@ -40,6 +40,11 @@ class TechnicalQuestionsController extends Controller
         return -1; 
     } 
 
+    /*
+    |---------------------------------------------
+    | CALCULATE FACTORIAL OF ANY NUMBER
+    |---------------------------------------------
+    */
     public function numberFactorial(Request $request, $number)
     {
         $factorial = 1;
@@ -48,6 +53,64 @@ class TechnicalQuestionsController extends Controller
             $factorial = $factorial*$i;
         }
 
-        return response()->json($factorial, 200);
+        return $factorial;
+    }
+
+    /*
+    |---------------------------------------------
+    | SORT STATES BY LENGTH IN DESCENDING ORDER
+    |---------------------------------------------
+    */
+    public function sortLengthDescending(Request $request)
+    {
+        $array = array(
+            "Abia",
+            "Adamawa",
+            "Akwa Ibom",
+            "Anambra",
+            "Bauchi",
+            "Bayelsa",
+            "Benue",
+            "Borno",
+            "Cross River",
+            "Delta",
+            "Ebonyi",
+            "Edo",
+            "Ekiti",
+            "Enugu",
+            "FCT - Abuja",
+            "Gombe",
+            "Imo",
+            "Jigawa",
+            "Kaduna",
+            "Kano",
+            "Katsina",
+            "Kebbi",
+            "Kogi",
+            "Kwara",
+            "Lagos",
+            "Nasarawa",
+            "Niger",
+            "Ogun",
+            "Ondo",
+            "Osun",
+            "Oyo",
+            "Plateau",
+            "Rivers",
+            "Sokoto",
+            "Taraba",
+            "Yobe",
+            "Zamfara"
+        );
+
+        $array_strlen = array_map('strlen', $array);
+
+        array_multisort($array_strlen, SORT_DESC, SORT_STRING, $array);
+
+        $data = [
+            'sorted_states_by_length' => $array,
+            'state_at_fifth_position' => $array[5],
+        ];
+        return response()->json($data, 200);
     }
 }

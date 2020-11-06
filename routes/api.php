@@ -58,5 +58,6 @@ Route::middleware('jwt.auth')->group(function () {
     Route::get('fetch/factorial/of/a/number/{number}', 					'TechnicalQuestionsController@numberFactorial');
 
     //STATES IN DESCENDING ORDER
+    Route::get('fetch/states/by/length/in/descending/order', 	        'TechnicalQuestionsController@sortLengthDescending');
 
 });
