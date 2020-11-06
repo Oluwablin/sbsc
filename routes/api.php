@@ -48,6 +48,9 @@ Route::middleware('jwt.auth')->group(function () {
     //CALLING PRODUCT FACTORY TO CREATE 50 PRODUCTS
     Route::post('create/new/product/with/factory', 					    'ProductController@runProduct');
 
+    //EXPORT PRODUCTS USING EXCEL
+    Route::get('fetch/excel/products', 					                'ProductController@exportProduct');
+
     //GROUPING ANAGRAMS TOGETHER
     Route::get('group/these/anagrams', 					                'TechnicalQuestionsController@groupAnagram');
 

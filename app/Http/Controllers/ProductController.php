@@ -9,6 +9,8 @@ use App\User;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Excel;
+use App\Exports\ProductExport;
 
 class ProductController extends Controller
 {
@@ -144,5 +146,15 @@ class ProductController extends Controller
         });
 
         return response()->json($products, 201);
+    }
+
+    /*
+    |---------------------------------------------
+    | USE EXCEL TO EXPORT PRODUCTS
+    |---------------------------------------------
+    */
+    public function exportProduct() 
+    {
+        return Excel::download(new ProductExport, 'products.xlsx');
     }
 }
