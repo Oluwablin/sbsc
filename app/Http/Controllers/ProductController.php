@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use App\Product;
+use App\ProductCategory;
 use App\User;
 use Exception;
 use Illuminate\Support\Facades\DB;
@@ -129,5 +130,13 @@ class ProductController extends Controller
         }
 
         return response()->json($data, 200);
+    }
+
+    public function runProduct() {
+        $products                   = factory(Product::class, 50)->create()->each(function($u) {
+            $u->product_category()->save(factory(ProductCategory::class)->make());
+        });
+
+        return response()->json($products, 201);
     }
 }

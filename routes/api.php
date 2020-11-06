@@ -37,6 +37,7 @@ Route::middleware('jwt.auth')->group(function () {
     Route::post('create/new/product', 								    'ProductController@storeProduct');
     Route::post('update/a/particular/product/{id}', 					'ProductController@updateProduct');
     Route::delete('delete/a/particular/product/{id}', 					'ProductController@deleteProduct');
+    Route::post('create/new/product/with/factory', 					    'ProductController@runProduct');
 
     //PRODUCT CATEGORIES
     Route::get('fetch/all/product/categories', 							'ProductCategoryController@listAllProductCategories');
