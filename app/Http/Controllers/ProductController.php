@@ -137,7 +137,7 @@ class ProductController extends Controller
     | CREATE 50 PRODUCTS WITH PRODUCT FACTORY
     |---------------------------------------------
     */
-    public function runProduct() 
+    public function runProduct(Request $request) 
     {
         $products                   = factory(Product::class, 50)->create()->each(function($u) {
             $u->product_category()->save(factory(ProductCategory::class)->make());

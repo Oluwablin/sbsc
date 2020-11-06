@@ -52,8 +52,10 @@ Route::middleware('jwt.auth')->group(function () {
     Route::get('group/these/anagrams', 					                'TechnicalQuestionsController@groupAnagram');
 
     //RETURN INDEX OF A GIVEN ARRAY
+    Route::get('fetch/index/in/an/array/{arr}/{n}', 					'TechnicalQuestionsController@indexArray');
 
     //FACTORIAL OF 13
+    Route::get('fetch/factorial/of/a/number/{number}', 					'TechnicalQuestionsController@numberFactorial');
 
     //STATES IN DESCENDING ORDER
 
