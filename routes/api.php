@@ -37,7 +37,6 @@ Route::middleware('jwt.auth')->group(function () {
     Route::post('create/new/product', 								    'ProductController@storeProduct');
     Route::post('update/a/particular/product/{id}', 					'ProductController@updateProduct');
     Route::delete('delete/a/particular/product/{id}', 					'ProductController@deleteProduct');
-    Route::post('create/new/product/with/factory', 					    'ProductController@runProduct');
 
     //PRODUCT CATEGORIES
     Route::get('fetch/all/product/categories', 							'ProductCategoryController@listAllProductCategories');
@@ -45,5 +44,17 @@ Route::middleware('jwt.auth')->group(function () {
     Route::post('create/new/product/category', 							'ProductCategoryController@storeProductCategory');
     Route::put('update/a/particular/product/category/{id}', 			'ProductCategoryController@updateProductCategory');
     Route::delete('delete/a/particular/product/category/{id}', 			'ProductCategoryController@deleteProductCategory');
+
+    //CALLING PRODUCT FACTORY TO CREATE 50 PRODUCTS
+    Route::post('create/new/product/with/factory', 					    'ProductController@runProduct');
+
+    //GROUPING ANAGRAMS TOGETHER
+    Route::get('group/these/anagrams', 					                'TechnicalQuestionsController@groupAnagram');
+
+    //RETURN INDEX OF A GIVEN ARRAY
+
+    //FACTORIAL OF 13
+
+    //STATES IN DESCENDING ORDER
 
 });

@@ -132,7 +132,13 @@ class ProductController extends Controller
         return response()->json($data, 200);
     }
 
-    public function runProduct() {
+    /*
+    |---------------------------------------------
+    | CREATE 50 PRODUCTS WITH PRODUCT FACTORY
+    |---------------------------------------------
+    */
+    public function runProduct() 
+    {
         $products                   = factory(Product::class, 50)->create()->each(function($u) {
             $u->product_category()->save(factory(ProductCategory::class)->make());
         });
